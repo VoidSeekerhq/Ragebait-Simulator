@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 
 function App() {
@@ -6,18 +6,23 @@ function App() {
     x: 0,
     y: 0
   })
+  const [quote, setQuote] = useState("No")
 
   let x = coords.x
   let y = coords.y
 
-  console.log(x, y)
+  const array = ["are you sure?", "fjdkjsah", "hghghgh", "jjjjjjhj"]
 
+  const index = useRef(0);
   const getCoords = () => {
     let x = Math.floor(Math.random() * 1001) - 500;
-    let y = Math.floor(Math.random() * 1201) - 600;
-
+    let y = Math.floor(Math.random() * 1001) - 500;
+    setQuote(array[index.current % array.length])
+    index.current++
+    console.log(quote)
     return { x, y }
   }
+
 
   return (
     <>
@@ -65,7 +70,7 @@ function App() {
             style={{
               transform: `translate(${x}%, ${y}%)`
             }}>
-            <p className="mb-0.5">No</p>
+            <p className="mb-0.5">{quote}</p>
           </button>
         </div>
       </div>
