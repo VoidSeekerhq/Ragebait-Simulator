@@ -13,8 +13,8 @@ function App() {
   console.log(x, y)
 
   const getCoords = () => {
-    let x = Math.floor(Math.random() * 1401) - 700;
-    let y = Math.floor(Math.random() * 1401) - 700;
+    let x = Math.floor(Math.random() * 1001) - 500;
+    let y = Math.floor(Math.random() * 1201) - 600;
 
     return { x, y }
   }
@@ -61,7 +61,7 @@ function App() {
           <button
             type="button"
             className="px-8 py-3 active:scale-95 text-sm text-white border border-gray-300 rounded-full bg-transparent transition-all duration-200 ease-out backdrop-blur-sm"
-            onMouseEnter={() => setCoords(getCoords())}
+            onClick={() => setCoords(getCoords())}
             style={{
               transform: `translate(${x}%, ${y}%)`
             }}>
